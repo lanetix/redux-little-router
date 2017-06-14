@@ -1892,11 +1892,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _types = __webpack_require__(1);
 	
 	/* eslint-disable consistent-return */
-	var unblock = void 0;
-	
 	exports.default = function (_ref) {
 	  var history = _ref.history;
 	  return function () {
+	    var unblock = void 0;
 	    return function (next) {
 	      return function (action) {
 	        switch (action.type) {

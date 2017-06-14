@@ -106,10 +106,10 @@ if (initialLocation) {
 `redux-little-router` provides the following action creators for navigation:
 
 ```js
-import { push, replace, go, goBack, goForward } from 'redux-little-router';
+import { push, replace, go, goBack, goForward, block, unblock } from 'redux-little-router';
 
 // `push` and `replace`
-// 
+//
 // Equivalent to pushState and replaceState in the History API.
 // If you installed the router with a basename, `push` and `replace`
 // know to automatically prepend paths with it. Both action creators
@@ -148,6 +148,25 @@ goBack();
 
 // Equivalent to the browser forward button
 goForward();
+
+// Disables the router from navigating when activated
+block();
+
+// Pass a callback function to provide the ability to trigger a modal
+block((location) => {
+  return 'Are you sure?' // Will trigger Cancel and Okay modal. Clicking Okay will proceed to `location`;
+})
+
+// Check for a specific state before triggering modal, or `return true` to proceed
+block((location) => {
+  if (state.dirty) {
+    return 'You have unsaved changes.';
+  }
+  return true;
+});
+
+// Re-enables the router navigation. Useful on `componentWillUnmount()` methods
+unblock();
 ```
 
 On location changes, the store enhancer dispatches a `LOCATION_CHANGED` action that contains at least the following properties:

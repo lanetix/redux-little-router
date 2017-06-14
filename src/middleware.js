@@ -13,11 +13,11 @@ import {
 
 type MiddlewareArgs = { history: History };
 
-let unblock;
 
 export default
-  ({ history }: MiddlewareArgs) => () =>
-  (next: Dispatch<*>) =>
+  ({ history }: MiddlewareArgs) => () => {
+  let unblock;
+  return (next: Dispatch<*>) =>
   (action: RouterAction) => {
     switch (action.type) {
     case PUSH:
@@ -48,3 +48,4 @@ export default
       return next(action);
     }
   };
+};
