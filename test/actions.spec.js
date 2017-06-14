@@ -90,7 +90,7 @@ describe('Action creators', () => {
   });
 
   it('creates a BLOCK action', () => {
-    const callback = () => {}
+    const callback = () => {};
     expect(block(callback)).to.deep.equal({ type: BLOCK, callback });
   });
 

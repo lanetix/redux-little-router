@@ -47,5 +47,5 @@ export const initializeCurrentLocation = (location: Location) => ({
   payload: location
 });
 
-export const block = (callback) => ({ type: BLOCK, callback });
+export const block = (callback: Function) => ({ type: BLOCK, callback });
 export const unblock = () => ({ type: UNBLOCK });

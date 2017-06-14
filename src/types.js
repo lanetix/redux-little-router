@@ -30,8 +30,13 @@ export const BLOCK = 'ROUTER_BLOCK';
 export const UNBLOCK = 'ROUTER_UNBLOCK';
 
 export type BareAction = {
-  type: 'ROUTER_GO_BACK' | 'ROUTER_GO_FORWARD' | 'ROUTER_BLOCK' | 'ROUTER_UNBLOCK'
+  type: 'ROUTER_GO_BACK' | 'ROUTER_GO_FORWARD' | 'ROUTER_UNBLOCK'
 };
+
+export type BlockAction = {
+  type: 'ROUTER_BLOCK',
+  callback: Function
+}
 
 export type IndexedAction = {
   type: 'ROUTER_GO',
@@ -45,5 +50,6 @@ export type LocationAction = {
 
 export type RouterAction =
   | BareAction
+  | BlockAction
   | IndexedAction
   | LocationAction;

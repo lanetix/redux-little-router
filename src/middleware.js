@@ -13,7 +13,7 @@ import {
 
 type MiddlewareArgs = { history: History };
 
-let unblock
+let unblock;
 
 export default
   ({ history }: MiddlewareArgs) => () =>
