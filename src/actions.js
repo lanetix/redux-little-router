@@ -5,17 +5,28 @@ import type {
   Href
 } from './types';
 
+import type {
+  Action
+} from 'history';
+
 import {
   PUSH,
   REPLACE,
   GO,
   GO_BACK,
   GO_FORWARD,
-  LOCATION_CHANGED
+  LOCATION_CHANGED,
+  BLOCK,
+  UNBLOCK
 } from './types';
 
 import normalizeHref from './util/normalize-href';
 import { packState } from './util/location-state';
+
+type BlockCallback = (
+  location: Location,
+  action?: Action
+) => void
 
 export const push = (href: Href, options: LocationOptions) => ({
   type: PUSH,
@@ -44,3 +55,6 @@ export const initializeCurrentLocation = (location: Location) => ({
   type: LOCATION_CHANGED,
   payload: location
 });
+
+export const block = (callback: BlockCallback) => ({ type: BLOCK, callback });
+export const unblock = () => ({ type: UNBLOCK });
