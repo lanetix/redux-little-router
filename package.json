@@ -24,6 +24,7 @@
     "test-cov": "BABEL_ENV=coverage nyc mocha test/.setup.js 'test/**/*.spec.js'",
     "check": "npm run lint && npm run test",
     "check-cov": "npm run lint && npm run test-cov",
+    "validate:yarn": "bin/validate-yarn-lockfile",
     "all": "npm run check && npm run check-cov && npm run clean && npm run build"
   },
   "engines": {

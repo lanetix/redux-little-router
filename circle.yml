@@ -1,0 +1,22 @@
+machine:
+  node:
+    version: 6
+  environment:
+    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+
+dependencies:
+  override:
+    - yarn install --pure-lockfile
+  cache_directories:
+    - ~/.cache/yarn
+    - "node_modules"
+
+test:
+  pre:
+    - yarn run validate:yarn
+    - yarn run check-cov
+  post:
+    - nyc report --reporter=text-lcov > coverage.lcov
+    - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
+
+    - yarn run build
