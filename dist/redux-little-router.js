@@ -160,7 +160,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    payload: (0, _locationState.packState)((0, _normalizeHref2.default)(href), options)
 	  };
 	};
-	
 	var replace = exports.replace = function replace(href, options) {
 	  return {
 	    type: _types.REPLACE,
