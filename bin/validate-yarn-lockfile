@@ -1,0 +1,10 @@
+#!/bin/bash
+
+yarn check ||
+(
+  echo "
+The installed packages do not match the yarn lockfile.
+You likely added a package with npm, run yarn install and commit yarn.lock with your changeset
+" >&2;
+  exit 1
+)
