@@ -1,5 +1,5 @@
 {
-  "name": "redux-little-router",
+  "name": "@lanetix/redux-little-router",
   "version": "13.2.0",
   "description": "A barebones routing solution for Redux applications.",
   "main": "lib/index.js",
