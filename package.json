@@ -1,6 +1,6 @@
 {
   "name": "@lanetix/redux-little-router",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "A barebones routing solution for Redux applications.",
   "main": "lib/index.js",
   "scripts": {
