@@ -29,7 +29,7 @@ describe('Router provider', () => {
 
       const wrapper = mount(<MagicalMysteryRouter />);
       const div = wrapper.find('div');
-      expect(div.node.textContent).to.equal('/home/messages/b-team');
+      expect(div.text()).to.equal('/home/messages/b-team');
     });
   });
 
@@ -53,7 +53,7 @@ describe('Router provider', () => {
       );
 
       const div = wrapper.find('div');
-      expect(div.node.textContent).to.equal('/home/messages/b-team');
+      expect(div.text()).to.equal('/home/messages/b-team');
     });
 
     it('adds router location props to its child component', () => {
@@ -74,7 +74,7 @@ describe('Router provider', () => {
       );
 
       const div = wrapper.find('div');
-      expect(div.node.textContent).to.equal('/home/messages/b-team');
+      expect(div.text()).to.equal('/home/messages/b-team');
     });
 
     it('passes down unserializable route results', () => {

@@ -18,7 +18,7 @@ describe('Fragment', () => {
         pathname: '/home/messages/a-team'
       })
     );
-    expect(wrapper.find('p').node.textContent).to.equal(
+    expect(wrapper.find('p').text()).to.equal(
       'Hey, wait, I\'m having one of those things...you know, a headache with pictures.'
     );
   });
