@@ -1,7 +1,11 @@
 require('babel-register')();
 
+var Enzyme = require('enzyme');
+var Adapter = require('enzyme-adapter-react-16');
 var jsdom = require('jsdom').jsdom;
 var sinon = require('sinon');
+
+Enzyme.configure({ adapter: new Adapter() });
 
 var exposedProperties = ['window', 'navigator', 'document'];
 
