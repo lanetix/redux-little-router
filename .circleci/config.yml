@@ -14,10 +14,9 @@ jobs:
             - node_modules
       - run: npm run lint
       - run: npm run check-cov
-      - ./node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov
-      - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
-
-    - npm run build
+      - run: ./node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov
+      - run: bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
+      - run: npm run build
 
 workflows:
   version: 2
