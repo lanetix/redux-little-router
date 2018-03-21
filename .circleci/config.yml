@@ -1,0 +1,25 @@
+version: 2
+jobs:
+  test:
+    docker:
+      - image: circleci/node:6
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run: npm run lint
+      - run: npm run check-cov
+      - run: ./node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov
+      - run: bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
+      - run: npm run build
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
